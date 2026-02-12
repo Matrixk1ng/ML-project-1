@@ -3,11 +3,14 @@ from pathlib import Path
 from feature import get_vocab_list, process_folder
 import csv
 import os
+import numpy as np
+
 
 datasets = ["enron1", "enron2", "enron4"]
-base_path = "/Users/obinna/Desktop/ML project 1/dataset"
-output_path = "/Users/obinna/Desktop/ML project 1/dataset-train"
+base_path = r"C:\Users\Obinna\Documents\GitHub\ML-project-1\dataset"
+output_path = r"C:\Users\Obinna\Documents\GitHub\ML-project-1\dataset-train"
 
+# For getting csv files BOW and Bernoulii
 for dataset in datasets:
     # Set up paths
     spam_train = Path(base_path + "/" + dataset + " - train/train/spam")
@@ -73,3 +76,9 @@ for dataset in datasets:
         writer.writerows(matrix_ber_test)
     
     print(dataset + " done - vocab size: " + str(len(vocab_list)))
+
+data = np.loadtxt(r"C:\Users\Obinna\Documents\GitHub\ML-project-1\dataset-train\enron1\enron1_bow_train.csv", delimeter=',', skiprows=1)
+
+X = data[:, :-1]
+y = data[:, -1]
+
