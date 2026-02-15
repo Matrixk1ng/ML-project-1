@@ -7,9 +7,8 @@ import numpy as np
 
 
 datasets = ["enron1", "enron2", "enron4"]
-base_path = r"C:\Users\Obinna\Documents\GitHub\ML-project-1\dataset"
-output_path = r"C:\Users\Obinna\Documents\GitHub\ML-project-1\dataset-train"
-
+base_path = "right click dataset folder and click copy path"
+output_path = "create a dataset-train folder and right click dataset-train folder and click copy path(not needed tho)"
 # For getting csv files BOW and Bernoulii
 for dataset in datasets:
     # Set up paths

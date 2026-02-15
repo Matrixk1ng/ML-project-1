@@ -52,24 +52,21 @@ def evaluate(X, y, w, b):
     
     return acc, prec, rec, f1
 
-# Config
-base_path = r"/Users/obinna/Desktop/ML project 1/dataset-train"
+base_path = "right click dataset-train folder and click copy path"
 datasets = ["enron1", "enron2", "enron4"]
 representations = ["bow", "bernoulli"]
 gd_variants = [
-    ("Batch GD", None, 0.1),      # name, batch_size, learning_rate
+    ("Batch GD", None, 0.1), 
     ("Mini-batch 50", 50, 0.01),
     ("Mini-batch 100", 100, 0.01),
     ("SGD", 1, 0.01)
 ]
 lambdas = [0.01, 0.1, 1.0, 10.0]
 
-# Store all results
 results = []
 
 for dataset in datasets:
     for rep in representations:
-        # Load data
         train_path = base_path + "//" + dataset + "//" + dataset + "_" + rep + "_train.csv"
         test_path = base_path + "//" + dataset + "//" + dataset + "_" + rep + "_test.csv"
         
@@ -81,7 +78,6 @@ for dataset in datasets:
         X_test = test_data[:, :-1]
         y_test = test_data[:, -1]
         
-        # Shuffle and split 70/30
         indices = np.arange(X.shape[0])
         np.random.shuffle(indices)
         X_shuf = X[indices]
@@ -92,7 +88,6 @@ for dataset in datasets:
         y_train, y_val = y_shuf[:split], y_shuf[split:]
         
         for gd_name, batch_size, lr in gd_variants:
-            # Find best lambda
             best_lambda = 0
             best_val_acc = 0
             

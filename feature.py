@@ -1,7 +1,4 @@
 import re
-
-
-
 def get_vocab_list(email):
     words = re.findall(r'[a-z]+', email.lower())
     common_words = {
